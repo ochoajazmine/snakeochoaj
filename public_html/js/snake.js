@@ -5,7 +5,8 @@ var screenwidth;
 var screenhieght;
 
 function gameinitialize() {
-   var canvas - document.getelementsbyid(" game-screen")
+   var canvas = document.getelementsbyid(" game-screen");
+   context = canvas. getcontext ("2nd");
 }
     
 

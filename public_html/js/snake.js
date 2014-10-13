@@ -23,4 +23,5 @@ function gameloop() {
 
 function gamedraw() {
     context.fillstyle= " rgb( 247, 12, 177)";
+    context.fillrect(0, 0, screenwidth, screenheight);
 }

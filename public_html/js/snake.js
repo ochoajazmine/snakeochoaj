@@ -1,18 +1,23 @@
 var snake;
+var snakelength;
+var snakesize;
 
 var context;
 var screenwidth;
-var screenhieght;
+var screenheight;
+
+gameinitialize();
+gamedraw();
 
 function gameinitialize() {
-   var canvas = document.getelementsbyid(" game-screen");
-   context = canvas. getcontext ("2nd");
+   var canvas = document.getElementById("game-screen");
+   context = canvas.getContext("2d");
    
-   screenwidth= window.innerwidth;
-   screenhieght= window.innerHeight;
+   screenwidth= window.innerWidth;
+   screenheight= window.innerHeight;
    
-   canvas. width= screenwidth;
-   canvas. height= screenheight;
+   canvas.width= screenwidth;
+   canvas.height= screenheight;
    
 }
     
@@ -22,6 +27,26 @@ function gameloop() {
 }
 
 function gamedraw() {
-    context.fillstyle= " rgb( 247, 12, 177)";
-    context.fillrect(0, 0, screenwidth, screenheight);
+    context.fillStyle= "rgb(247, 12, 177)";
+    context.fillRect(0, 0, screenwidth, screenheight);
+}
+
+ function snakeinitialize() {
+    snake= []; 
+    snakelegth= 5;
+    snakesize= 20;
+    
+    for (var index=0; index < snakelength; index++) {
+        snake.push({
+            
+            
+        });
+    }
+ }
+function snakedraw () {
+    
+}
+
+function snakeupdate() {
+    
 }

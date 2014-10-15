@@ -2,51 +2,82 @@ var snake;
 var snakelength;
 var snakesize;
 
+var food;
+
 var context;
 var screenwidth;
 var screenheight;
 
 gameinitialize();
-gamedraw();
+snakeInitialize();
+foodInitialize();
+setInterval(gameLoop, 1000/30);
 
 function gameinitialize() {
    var canvas = document.getElementById("game-screen");
    context = canvas.getContext("2d");
    
-   screenwidth= window.innerWidth;
-   screenheight= window.innerHeight;
+   screenWidth = window.innerWidth;
+   screenHeight = window.innerHeight;
    
-   canvas.width= screenwidth;
-   canvas.height= screenheight;
+   canvas.width= screenWidth;
+   canvas.height= screenHeight;
    
 }
     
 
-function gameloop() {
-    
+function gameLoop() {
+    gameDraw();
+    snakeUpdate();
+    snakeDraw();
+    foodDraw();
 }
 
-function gamedraw() {
+function gameDraw() {
     context.fillStyle= "rgb(247, 12, 177)";
-    context.fillRect(0, 0, screenwidth, screenheight);
+    context.fillRect(0, 0, screenWidth, screenHeight);
 }
 
- function snakeinitialize() {
+ function snakeInitialize() {
     snake= []; 
     snakelegth= 5;
     snakesize= 20;
     
-    for (var index=0; index < snakelength; index++) {
+    for (var index = snakeLength - 1; index >= 0; index--) {
         snake.push({
-            
-            
+            x: index,
+            y: 0     
         });
     }
  }
-function snakedraw () {
-    
+function snakeDraw () {
+    for(var index = 0; index < snake.length; index++) {
+        context.fillStyle = "white";
+        context.fillRect(snake[index].x * snakeSize, snake[index].y * snakeSize, snakeSize, snakeSize);
+    }
 }
 
-function snakeupdate() {
+function snakeUpdate() {
+    var snakeHeadX = snake[0].x;
+    var snakeHeadY = snake[0].y;
     
+    snakeHeadX++;
+    
+    var snakeTail = snake.pop();
+    snakeTail.x = snakeHeadX;
+    snakeTail.y = snakeHeadY;
+    snake.unshift(snakeTail);
+}
+
+function foodInitialize() {
+    food = {
+        x: 0,
+        y: 0
+    };
+}
+
+function foodDraw() {
+    context.fillStyle = "white";
+    context.fillRect(food.x, food.y, snakeSize, snakeSize);
+
 }

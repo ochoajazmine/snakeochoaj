@@ -120,6 +120,6 @@ function setFoodPosition(){
     food.y = randomY;
 }
 
-function keyboardHandler (event) {
+function keyboardHandler(event) {
     console.log(events);
 }

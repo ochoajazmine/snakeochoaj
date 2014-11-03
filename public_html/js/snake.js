@@ -40,6 +40,7 @@ function gameInitialize() {
     
     
     gameOverMenu = document.getElementById("gameOver")
+    centerMenuPosistion(gameOverMenu);
     
      setState("PLAY");
 }
@@ -192,8 +193,25 @@ function checkwallcollisions(snakeHeadX, snakeHeadY) {
 
 function setState(state) {
     gameState = state;
+    showMenu(state);
 }
 
-function displayMeanu(menu){
-    menu.style. 
+/*-----------------------------------------------------------------------------
+ * menu functions
+ * ----------------------------------------------------------------------------
+ */
+
+function displayMenu(menu){
+    menu.style.visibility = "visible";
 }
+
+function showMenu(state){
+    if(state == "GAME OVER"){
+        displayMenu(gameOverMenu);
+    }
+}
+
+function centerMenuPosistion(menu) {
+  menu.style.top = (screenHeight/ 2) - (menu.offsetHeight/ 2) + "px";
+  menu.style.left = (screenWidth / 2) - (menu.offsetWidth / 2)+ "px";
+} 

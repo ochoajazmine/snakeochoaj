@@ -40,7 +40,7 @@ function gameInitialize() {
     
     
     gameOverMenu = document.getElementById("gameOver")
-    centerMenuPosistion(gameOverMenu);
+    //centerMenuPosistion(gameOverMenu);
     
      setState("PLAY");
 }
